@@ -22,23 +22,29 @@ public class Gomoku implements GomokuInterface {
     }
 
     public void setNewStone(int row, int column) {
-        if (acceptNewMove) {
-            acceptNewMove = false;
-            if (board.setMoveIfFieldIsEmpty(currentPlayer.getPlayerNumber(), row, column)) {
-                notifyNewMovePerformed(currentPlayer.getPlayerNumber(), row, column);
-            }
-            if (endGameChecker.checkWin(row, column)) {
-                currentPlayer.incrementNumberOfWins();
-                notifyWinOccurred(currentPlayer.getPlayerNumber(),
-                        player1.getNumberOfWins(),
-                        player2.getNumberOfWins());
-            } else if (endGameChecker.checkDraw()) {
-                notifyDrawOccurred();
-            } else {
-                changeNextPlayer();
-                acceptNewMove = true;
-                notifyCurrentPlayerChanged(currentPlayer.getPlayerNumber());
-            }
+        if (!acceptNewMove) {
+            return;
+        }
+        acceptNewMove = false;
+
+        if (board.setMoveIfFieldIsEmpty(currentPlayer.getPlayerNumber(), row, column)) {
+            notifyNewMovePerformed(currentPlayer.getPlayerNumber(), row, column);
+        } else {
+            acceptNewMove = true;
+            return;
+        }
+
+        if (endGameChecker.checkWin(row, column)) {
+            currentPlayer.incrementNumberOfWins();
+            notifyWinOccurred(currentPlayer.getPlayerNumber(),
+                    player1.getNumberOfWins(),
+                    player2.getNumberOfWins());
+        } else if (endGameChecker.checkDraw()) {
+            notifyDrawOccurred();
+        } else {
+            changeNextPlayer();
+            acceptNewMove = true;
+            notifyCurrentPlayerChanged(currentPlayer.getPlayerNumber());
         }
     }
 
