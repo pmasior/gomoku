@@ -1,0 +1,17 @@
+/* TODO: should be .root */
+* {
+    -white: #f3f3f3;
+    -black: #464444;
+    -gray: #a8a8a8;
+    -dark-sand: #986801;
+    -blue: #4d7cfe;
+}
+
+.anchor-pane, .canvas {
+    -fx-background-color: -gray;
+}
+
+.canvas {
+    -fx-pref-height: 800px;
+    -fx-pref-width: 800px;
+}
