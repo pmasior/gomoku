@@ -58,7 +58,7 @@ public class EndGameChecker {
     }
 
     private boolean checkIsInvalidField(int checkedField) {
-        return checkedField >= board.length;
+        return checkedField < 0 || checkedField >= board.length;
     }
 
     public boolean checkDraw() {

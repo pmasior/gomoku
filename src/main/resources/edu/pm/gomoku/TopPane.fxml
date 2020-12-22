@@ -20,7 +20,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <Button fx:id="newGameButton" mnemonicParsing="false" text="New game" />
+            <Button fx:id="newGameButton" mnemonicParsing="false" onMouseClicked="#handleNewGameOnMouseClicked" text="New game" />
             <HBox prefHeight="100.0" prefWidth="200.0" styleClass="score-h-box" GridPane.columnIndex="1">
                <children>
                   <Label fx:id="player1WinsLabel" text="0">

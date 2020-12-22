@@ -16,6 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main.fxml"));
         Parent root = fxmlLoader.load();
+
         Scene scene = new Scene(root);
         primaryStage.setTitle("Gomoku");
         primaryStage.setScene(scene);
