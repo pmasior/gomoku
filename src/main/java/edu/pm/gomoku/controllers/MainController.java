@@ -1,6 +1,7 @@
 package edu.pm.gomoku.controllers;
 
 import edu.pm.gomoku.core.Gomoku;
+import edu.pm.gomoku.core.GomokuInterface;
 import javafx.fxml.FXML;
 
 public class MainController {
@@ -8,7 +9,7 @@ public class MainController {
     @FXML private TopPaneController topPaneController;
 
     @FXML private void initialize() {
-        Gomoku gomoku = new Gomoku();
+        GomokuInterface gomoku = new Gomoku();
         boardPaneController.setGomoku(gomoku);
         topPaneController.setGomoku(gomoku);
     }

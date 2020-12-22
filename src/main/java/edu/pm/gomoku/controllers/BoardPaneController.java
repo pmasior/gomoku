@@ -2,6 +2,7 @@ package edu.pm.gomoku.controllers;
 
 import edu.pm.gomoku.Main;
 import edu.pm.gomoku.core.Gomoku;
+import edu.pm.gomoku.core.GomokuInterface;
 import edu.pm.gomoku.core.GomokuListener;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -24,9 +25,9 @@ public class BoardPaneController {
     private Image blackStoneImage;
     private Image whiteStoneImage;
 
-    private Gomoku gomoku;
+    private GomokuInterface gomoku;
 
-    public void setGomoku(Gomoku gomoku) {
+    public void setGomoku(GomokuInterface gomoku) {
         this.gomoku = gomoku;
         configureGomokuListener();
         gomoku.startNewRound();

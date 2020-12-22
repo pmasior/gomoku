@@ -1,6 +1,7 @@
 package edu.pm.gomoku.controllers;
 
 import edu.pm.gomoku.core.Gomoku;
+import edu.pm.gomoku.core.GomokuInterface;
 import edu.pm.gomoku.core.GomokuListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,9 +26,9 @@ public class TopPaneController {
     @FXML private Label player2WinsLabel;
     @FXML private Label gameStatusLabel;
 
-    private Gomoku gomoku;
+    private GomokuInterface gomoku;
 
-    public void setGomoku(Gomoku gomoku) {
+    public void setGomoku(GomokuInterface gomoku) {
         this.gomoku = gomoku;
         configureGomokuListener();
     }
