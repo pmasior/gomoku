@@ -10,9 +10,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
 public class BoardPaneController {
-    private static Color WHITE_COLOR = Color.web("#ffffff");
-    private static int BOARD_MARGIN = 50;
-    private static int FIELD_SIZE = 50;
+    private static final Color WHITE_COLOR = Color.web("#ffffff");
+    private static final int BOARD_MARGIN = 50;
+    private static final int FIELD_SIZE = 50;
 
     @FXML private AnchorPane boardPane;
     @FXML private Canvas boardCanvas;
@@ -23,7 +23,7 @@ public class BoardPaneController {
     @FXML private void initialize() {
         setGraphicsContextForCanvas();
         drawBoardBackground();
-        drawBoard();
+        drawBoardLines();
         loadStoneImages();
     }
 
@@ -50,7 +50,7 @@ public class BoardPaneController {
         graphicsContext.clearRect(0, 0, boardCanvas.getHeight(), boardCanvas.getWidth());
     }
 
-    private void drawBoard() {
+    private void drawBoardLines() {
         graphicsContext.setStroke(WHITE_COLOR);
         graphicsContext.setLineWidth(2);
         int lineBegin = BOARD_MARGIN;
