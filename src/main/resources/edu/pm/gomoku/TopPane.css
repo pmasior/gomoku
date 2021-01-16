@@ -1,10 +1,8 @@
-/* TODO: should be .root */
 * {
     -white: #f3f3f3;
     -black: #464444;
     -gray: #a8a8a8;
     -dark-sand: #986801;
-  -blue: #4d7cfe;
 }
 
 .anchor-pane, .grid-pane {

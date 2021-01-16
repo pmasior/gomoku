@@ -7,11 +7,37 @@ public class EndGameChecker {
         this.board = board;
     }
 
+    /**
+     * Check if draw occurred on board (all fields are occupied)
+     *
+     * @return true if draw occurred, else false
+     */
+    public boolean checkDraw() {
+        for (int[] row : board) {
+            for (int field : row) {
+                if (field == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Check if win occupied on board
+     *
+     * @param row row number of the last move on board
+     * @param column column number of the last move on board
+     * @return true if win occurred, else false
+     */
     public boolean checkWin(int row, int column) {
-        return countSucceedingStonesHorizontally(row, column) == 5
-                || countSucceedingStonesVertically(row, column) == 5
-                || countSucceedingStonesDiagonally1(row, column) == 5
-                || countSucceedingStonesDiagonally2(row, column) == 5;
+        if (board[row][column] != 0) {
+            return countSucceedingStonesHorizontally(row, column) == 5
+                    || countSucceedingStonesVertically(row, column) == 5
+                    || countSucceedingStonesDiagonally1(row, column) == 5
+                    || countSucceedingStonesDiagonally2(row, column) == 5;
+        }
+        return false;
     }
 
     private int countSucceedingStonesHorizontally(int row, int column) {
@@ -41,7 +67,7 @@ public class EndGameChecker {
     private int countSucceedingStones(int row, int column, int directionInRow, int directionInColumn) {
         int count = 0;
         int playerStoneInField = board[row][column];
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 1; i <= 5; i++) {
             int checkedRow = row + directionInRow * i;
             int checkedColumn = column + directionInColumn * i;
             if (checkIsInvalidField(checkedRow)) {
@@ -52,6 +78,8 @@ public class EndGameChecker {
             }
             if (board[checkedRow][checkedColumn] == playerStoneInField) {
                 count++;
+            } else {
+                break;
             }
         }
         return count;
@@ -59,16 +87,5 @@ public class EndGameChecker {
 
     private boolean checkIsInvalidField(int checkedField) {
         return checkedField < 0 || checkedField >= board.length;
-    }
-
-    public boolean checkDraw() {
-        for (int row = 0; row < board.length; row++) {
-            for (int column = 0; column < board[row].length; column++) {
-                if (board[row][column] == 0) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 }

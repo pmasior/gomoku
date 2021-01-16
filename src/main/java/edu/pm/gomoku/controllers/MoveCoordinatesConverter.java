@@ -1,7 +1,6 @@
 package edu.pm.gomoku.controllers;
 
 public class MoveCoordinatesConverter {
-    private static final int GAP_BETWEEN_FIELDS = BoardPaneController.GAP_BETWEEN_FIELDS;  //TODO: create getter in BoardPaneController
     private static final int STONE_RADIUS = 23;
 
     private double xMousePosition = -1;
@@ -71,10 +70,10 @@ public class MoveCoordinatesConverter {
     }
 
     private int calcFieldNumberInArray(double mousePosition) {
-        return (int) Math.round((mousePosition) / GAP_BETWEEN_FIELDS) - 1;
+        return (int) Math.round((mousePosition) / GraphicBoardSize.GAP_BETWEEN_FIELDS) - 1;
     }
 
     private int calcFieldPosition(int fieldNumberInArray) {
-        return (fieldNumberInArray + 1) * GAP_BETWEEN_FIELDS;
+        return (fieldNumberInArray + 1) * GraphicBoardSize.GAP_BETWEEN_FIELDS;
     }
 }

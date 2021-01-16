@@ -1,6 +1,5 @@
 package edu.pm.gomoku.controllers;
 
-import edu.pm.gomoku.core.Gomoku;
 import edu.pm.gomoku.core.GomokuInterface;
 import edu.pm.gomoku.core.GomokuListener;
 import javafx.fxml.FXML;

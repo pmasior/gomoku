@@ -1,7 +1,6 @@
 package edu.pm.gomoku.controllers;
 
 import edu.pm.gomoku.Main;
-import edu.pm.gomoku.core.Gomoku;
 import edu.pm.gomoku.core.GomokuInterface;
 import edu.pm.gomoku.core.GomokuListener;
 import javafx.fxml.FXML;
@@ -13,9 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
 public class BoardPaneController {
-    private static final Color WHITE_COLOR = Color.web("#ffffff");
-    private static final int BOARD_MARGIN = 50;
-    static final int GAP_BETWEEN_FIELDS = 50;  // TODO: make private
+    private static final Color LINE_COLOR = Color.web("#ffffff");
     private static final String BLACK_STONE_IMAGE_FILENAME = "pieceBlack_border11.png";
     private static final String WHITE_STONE_IMAGE_FILENAME = "pieceWhite_border11.png";
 
@@ -30,7 +27,6 @@ public class BoardPaneController {
     public void setGomoku(GomokuInterface gomoku) {
         this.gomoku = gomoku;
         configureGomokuListener();
-        gomoku.startNewRound();
     }
 
     @FXML private void initialize() {
@@ -98,11 +94,11 @@ public class BoardPaneController {
     }
 
     private void drawBoardLines() {
-        graphicsContext.setStroke(WHITE_COLOR);
+        graphicsContext.setStroke(LINE_COLOR);
         graphicsContext.setLineWidth(2);
-        int lineBegin = BOARD_MARGIN;
-        int lineEnd = (int)boardCanvas.getHeight() - BOARD_MARGIN;
-        for (int i = lineBegin; i <= lineEnd; i = i + GAP_BETWEEN_FIELDS) {
+        int lineBegin = GraphicBoardSize.BOARD_MARGIN;
+        int lineEnd = (int)boardCanvas.getHeight() - GraphicBoardSize.BOARD_MARGIN;
+        for (int i = lineBegin; i <= lineEnd; i = i + GraphicBoardSize.GAP_BETWEEN_FIELDS) {
             graphicsContext.strokeLine(i, lineBegin, i, lineEnd);
             graphicsContext.strokeLine(lineBegin, i, lineEnd, i);
         }
