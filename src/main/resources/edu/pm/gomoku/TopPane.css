@@ -1,0 +1,58 @@
+* {
+    -white: #f3f3f3;
+    -black: #464444;
+    -gray: #a8a8a8;
+    -dark-sand: #986801;
+}
+
+.anchor-pane, .grid-pane {
+    -fx-background-color: -gray;
+}
+
+.button {
+    -fx-background-color: -white;
+    -fx-background-insets: 2px;
+    -fx-border-color: -dark-sand;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-font-family: "Noto Sans";
+    -fx-font-weight: bold;
+    -fx-text-fill: -dark-sand;
+}
+
+.button:hover {
+    -fx-background-color: -dark-sand;
+    -fx-text-fill: -white;
+}
+
+.score-h-box {
+    -fx-alignment: center;
+}
+
+.ratio-label {
+    -fx-font-family: "Noto Sans";
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px;
+}
+
+.player-1-wins-label {
+    -fx-text-fill: -black;
+}
+
+.colon-label {
+    -fx-text-fill: -dark-sand;
+}
+
+.player-2-wins-label {
+    -fx-text-fill: -white;
+}
+
+.game-status-label {
+    -fx-font-family: "Noto Sans";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px;
+    -fx-alignment: center-right;
+    -fx-max-width: Infinity;
+}
