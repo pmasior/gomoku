@@ -28,7 +28,9 @@ public class Board {
      * @return true if move set into board, else false
      */
     public boolean setMoveIfFieldIsEmpty(int playerNumber, int row, int column) {
-        if (checkIfFieldIsEmpty(row, column)) {
+        if (checkIsValidField(row)
+                && checkIsValidField(column)
+                && checkIfFieldIsEmpty(row, column)) {
             board[row][column] = playerNumber;
             return true;
         }
@@ -37,5 +39,9 @@ public class Board {
 
     private boolean checkIfFieldIsEmpty(int row, int column) {
         return board[row][column] == 0;
+    }
+
+    private boolean checkIsValidField(int checkedField) {
+        return checkedField >= 0 && checkedField < board.length;
     }
 }

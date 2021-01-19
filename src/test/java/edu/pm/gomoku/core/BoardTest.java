@@ -31,6 +31,14 @@ public class BoardTest {
     }
 
     @Test
+    public void givenEmptyBoard_whenSetIncorrectMove_thenReturnFalse() {
+
+        boolean result = board.setMoveIfFieldIsEmpty(1, -1, -1);
+
+        Assertions.assertFalse(result);
+    }
+
+    @Test
     public void givenBoardWithMove_whenGetBoard_thenReturnArray() {
         board.setMoveIfFieldIsEmpty(1, 0, 1);
 
