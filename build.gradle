@@ -19,6 +19,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
 
 javafx {
@@ -26,4 +29,15 @@ javafx {
     version = '13'
 }
 
-mainClassName = 'edu.pm.gomoku.Main'
+mainClassName = "edu.pm.gomoku.Main"
+
+jar {
+    manifest {
+        attributes 'Main-Class' : "$mainClassName"
+    }
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}

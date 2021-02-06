@@ -1,6 +1,6 @@
 package edu.pm.gomoku.controllers;
 
-import edu.pm.gomoku.Main;
+import edu.pm.gomoku.MainJavaFX;
 import edu.pm.gomoku.core.GomokuInterface;
 import edu.pm.gomoku.core.GomokuListener;
 import javafx.fxml.FXML;
@@ -85,7 +85,7 @@ public class BoardPaneController {
     }
 
     private Image loadImage(String filename) {
-        String location = Main.class.getResource(filename).toString();
+        String location = MainJavaFX.class.getResource(filename).toString();
         return new Image(location);
     }
 
