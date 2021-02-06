@@ -1,26 +1,12 @@
 package edu.pm.gomoku;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-public class Main extends Application {
-
+/**
+ * Class allows run an application
+ *
+ * ClassWorkaround problem of creating jar when Main class inherit from other class
+ */
+public class Main {
     public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("Gomoku");
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        primaryStage.show();
+        MainJavaFX.main(args);
     }
 }
